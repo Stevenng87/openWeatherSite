@@ -48,20 +48,6 @@ const api = {
   
     return `${day} ${date} ${month} ${year}`;
   }
-
-  const api = {
-    key: "02639fd36bd0449881b8a6bb191f3401",
-    base: "https://api.openweathermap.org/data/2.5/"
-  }
-  
-  const searchbox = document.querySelector('.search-box');
-  searchbox.addEventListener('keypress', setQuery);
-  
-  function setQuery(evt) {
-    if (evt.keyCode == 13) {
-      getResults(searchbox.value);
-    }
-  }
   
   function getResults (query) {
     fetch(`${api.base}forecast?q=${query}&units=metric&APPID=${api.key}`)
@@ -71,4 +57,4 @@ const api = {
   }
 
   for (let i = 0; i < weather.length; i++) {
-    responseText.innerHTML = responseText.innerHTML
+    responseText.innerHTML = responseText.innerHTML+`temp:${weather.main.temp}`
